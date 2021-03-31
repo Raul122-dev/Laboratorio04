@@ -7,7 +7,7 @@ const Statistics = (props) => {
     const positive = (props.good / all)*100
 
     return(
-        <div>
+        <div className="statistics_list">
             <h1>Statistics</h1>
             <Statistic text="good" value ={props.good} />
             <Statistic text="neutral" value ={props.neutral} />

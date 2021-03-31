@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-import Statistics from './components/Statistics.js'
-import Button from './components/Button.js'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Statistics from './components/Statistics.js';
+import Button from './components/Button.js';
+import './index.css'
 
 const App = () => {
 
@@ -23,14 +24,18 @@ const App = () => {
 
   return (
     <div>
-      <h1>Give Feedback</h1>
-      <Button handleClick={ClickGood} text="good"/>
-      <Button handleClick={ClickNeutral} text="neutral"/>
-      <Button handleClick={ClickBad} text="bad"/>
-      {!good & !neutral & !bad
-        ? <p>No Feedback given</p>
-        : <Statistics good={good} neutral={neutral} bad={bad}/>
-      }
+      <h1 className="title">Give Feedback</h1>
+      <div className="buttons">
+        <Button handleClick={ClickGood} text="good"/>
+        <Button handleClick={ClickNeutral} text="neutral"/>
+        <Button handleClick={ClickBad} text="bad"/>
+      </div>
+      <div className="stats">
+        {!good & !neutral & !bad
+          ? <p>No Feedback given</p>
+          : <Statistics good={good} neutral={neutral} bad={bad}/>
+        }
+      </div>
     </div>
   )
 }
