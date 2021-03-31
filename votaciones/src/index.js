@@ -26,7 +26,10 @@ const App = () => {
       <button onClick={ClickGood}>good</button>
       <button onClick={ClickNeutral}>neutral</button>
       <button onClick={ClickBad}>bad</button>
-      <Statistics good={good} neutral={neutral} bad={bad}/>
+      {!good & !neutral & !bad
+        ? <p>No Feedback given</p>
+        : <Statistics good={good} neutral={neutral} bad={bad}/>
+      }
     </div>
   )
 }
