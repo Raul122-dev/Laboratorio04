@@ -4,35 +4,35 @@ import ReactDOM from 'react-dom'
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  const [vote, setVote] = useState(props.anecdotes)
+  const [votes, setVote] = useState(props.anecdotes)
 
   const aleatoria = () => {
     var num = Math.floor((Math.random() * props.anecdotes.length -1) + 1)
-    console.log(selected)
-    console.log( num ) 
     setSelected( num )
-
   }
 
   const votar = () => {
-    let vote_cop = {...vote}
-
+    let vote_cop = [...votes]
     vote_cop[selected].vote += 1
-
     setVote(
       vote_cop
     )
-      
+
   }
+  let mayor = votes.sort((a,b) => b.vote - a.vote)
+  console.log(votes)
 
-  console.log(vote)
-
+  
   return (
     <div>
-      {vote[selected].anecd}
-      <p>has {vote[selected].vote} votes</p>
+      <h1>Anecdote of the day </h1>
+      {votes[selected].anecd}
+      <p>has {votes[selected].vote} votes</p>
       <button onClick={votar}>Votar</button>
       <button onClick={aleatoria}>next anecdote</button>
+      <h1>Anecdote whit most votes </h1>
+      <p>{mayor[0].anecd}</p>
+      <p>{mayor[0].vote}</p>
     </div>
   )
 }
