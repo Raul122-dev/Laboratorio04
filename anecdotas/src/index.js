@@ -25,14 +25,25 @@ const App = (props) => {
   
   return (
     <div>
-      <h1>Anecdote of the day </h1>
-      {votes[selected].anecd}
-      <p>has {votes[selected].vote} votes</p>
-      <button onClick={votar}>Votar</button>
-      <button onClick={aleatoria}>next anecdote</button>
-      <h1>Anecdote whit most votes </h1>
-      <p>{mayor[0].anecd}</p>
-      <p>{mayor[0].vote}</p>
+      <div className="container_title">
+        <h1>Anecdote of the day </h1>
+      </div>
+      <div className="container_anecdotas">
+        <p>{votes[selected].anecd}</p> 
+        <p>has {votes[selected].vote} votes</p>
+      </div>
+      <div className="container_buttons">
+        <button className="button_vote" onClick={votar}>Votar</button>
+        <button className="button_vote" onClick={aleatoria}>next anecdote</button>
+      </div>
+      <div className="container_title">
+        <h1>Anecdote whit most votes </h1>
+      </div>
+      <div className="container_anecdotas">
+        <p>{mayor[0].anecd}</p>
+        <p>{mayor[0].vote}</p>
+      </div>
+      
     </div>
   )
 }
